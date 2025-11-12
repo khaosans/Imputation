@@ -4,6 +4,7 @@ matplotlib>=3.6
 seaborn>=0.12
 jupyterlab>=3.6
 notebook>=6.5
+ipython>=8.0
 chart-studio>=1.1
 
 
