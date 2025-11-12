@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>AAVAIL Market Insights - US & Singapore</title>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'>
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; background: #f7f8fa; color: #1f2933; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #60a5fa); color: white; padding: 2.5rem; }
+    header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+    header p { margin: 0; opacity: 0.95; }
+    main { padding: 2rem max(5vw, 2rem); max-width: 1400px; margin: 0 auto; }
+    .section { margin-bottom: 3rem; }
+    .section h2 { color: #1e40af; border-bottom: 2px solid #3b82f6; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08); }
+    .card h3 { margin-top: 0; color: #1e40af; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid #e2e8f0; }
+    th { background: #f8fafc; font-weight: 600; }
+    .insights { background: #eff6ff; border-left: 4px solid #2563eb; padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
+    .insights h3 { margin-top: 0; color: #1e40af; }
+    .insights ul { margin: 0.5rem 0; padding-left: 1.5rem; }
+    .insights li { margin: 0.5rem 0; }
+    .recommendations { background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
+    .recommendations h3 { margin-top: 0; color: #059669; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; }
+    .chart-container { position: relative; height: 300px; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AAVAIL Streaming Market Insights</h1>
+    <p>Comprehensive analysis of United States and Singapore markets after data imputation</p>
+  </header>
+  <main>
+    <section class='section'>
+      <h2>Market Overview</h2>
+      <div class='grid'>
+        <article class='card'>
+          <h3>Market Summary</h3>
+          <table>
+            <thead>
+              <tr><th>Market</th><th>Users</th><th>Avg Streams</th><th>Subscriber %</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Singapore</td><td>300.0</td><td>15.45</td><td>39.7%</td></tr><tr><td>United States</td><td>700.0</td><td>18.86</td><td>84.6%</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class='card'>
+          <h3>Average Streams by Market</h3>
+          <div class='chart-container'>
+            <canvas id='avgStreams'></canvas>
+          </div>
+        </article>
+        <article class='card'>
+          <h3>Subscriber Penetration</h3>
+          <div class='chart-container'>
+            <canvas id='subscriberPct'></canvas>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class='section'>
+      <h2>Subscriber Type Distribution</h2>
+      <div class='grid'>
+        <article class='card'>
+          <h3>United States</h3>
+          <div class='chart-container'>
+            <canvas id='usSubscriberTypes'></canvas>
+          </div>
+        </article>
+        <article class='card'>
+          <h3>Singapore</h3>
+          <div class='chart-container'>
+            <canvas id='sgSubscriberTypes'></canvas>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class='section'>
+      <h2>Streaming Activity by Plan</h2>
+      <div class='grid'>
+        <article class='card'>
+          <h3>US - Average Streams by Plan</h3>
+          <table>
+            <thead>
+              <tr><th>Plan</th><th>Mean</th><th>Median</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Basic</td><td>18.65</td><td>19.00</td></tr><tr><td>Premium</td><td>19.00</td><td>20.00</td></tr><tr><td>Unlimited</td><td>18.98</td><td>19.00</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class='card'>
+          <h3>Singapore - Average Streams by Plan</h3>
+          <table>
+            <thead>
+              <tr><th>Plan</th><th>Mean</th><th>Median</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Basic</td><td>16.77</td><td>18.00</td></tr><tr><td>Premium</td><td>14.77</td><td>15.00</td></tr><tr><td>Unlimited</td><td>14.16</td><td>14.00</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class='section'>
+      <h2>Visualizations</h2>
+      <div class='grid'>
+        <article class='card'>
+          <h3>Missing Data Heatmap</h3>
+          <img src='assets/missingness_heatmap.png' alt='Missing Data Heatmap' />
+        </article>
+        <article class='card'>
+          <h3>Subscriber Type Comparison</h3>
+          <img src='assets/subscriber_type_comparison.png' alt='Subscriber Type Distribution' />
+        </article>
+        <article class='card'>
+          <h3>Streaming Activity by Plan</h3>
+          <img src='assets/streams_by_subscriber_type.png' alt='Streaming Activity by Subscriber Type' />
+        </article>
+        <article class='card'>
+          <h3>Subscriber Status</h3>
+          <img src='assets/subscriber_status.png' alt='Subscriber Status by Market' />
+        </article>
+        <article class='card'>
+          <h3>Age Demographics</h3>
+          <img src='assets/age_by_subscriber_type.png' alt='Age Distribution by Subscriber Type' />
+        </article>
+        <article class='card'>
+          <h3>Imputation Comparison</h3>
+          <img src='assets/imputation_comparison.png' alt='Before and After Imputation' />
+        </article>
+      </div>
+    </section>
+
+    <section class='section'>
+      <div class='insights'>
+        <h3>Key Insights</h3>
+        <ul>
+          <li><strong>Plan Popularity:</strong> The <code>aavail_premium</code> plan is the most popular in both US and Singapore markets, followed by <code>aavail_basic</code>. The <code>aavail_unlimited</code> plan has a significantly smaller customer base.</li>
+          <li><strong>Streaming Activity:</strong> There is no clear, significant difference in streaming activity between the three plans. Customers on the <code>unlimited</code> plan are not streaming significantly more than those on the <code>basic</code> plan.</li>
+          <li><strong>Subscriber Conversion:</strong> Both markets show a very high conversion rate, with subscribers significantly outnumbering non-subscribers.</li>
+          <li><strong>Age Demographics:</strong> Age distributions are very similar across all subscriber types in both countries, with median age hovering around mid-20s to 30.</li>
+        </ul>
+      </div>
+
+      <div class='recommendations'>
+        <h3>Actionable Recommendations</h3>
+        <ul>
+          <li><strong>Re-evaluate the <code>aavail_unlimited</code> Plan:</strong> Conduct user research to understand why customers choose this plan if they're not streaming more than basic plan users.</li>
+          <li><strong>Investigate Streaming Behavior:</strong> Define what an "active" user is and provide more context on the <code>num_streams</code> KPI.</li>
+          <li><strong>Marketing & Pricing:</strong> Consider upselling <code>basic</code> users to <code>premium</code>. Evaluate whether to re-package or phase out the <code>unlimited</code> plan.</li>
+          <li><strong>Data Quality:</strong> Investigate the source of missing <code>subscriber_type</code> data to prevent future data entry issues.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script>
+    const labels = ['singapore', 'united_states'].map(c => c.replace('_', ' ').replace(/\b\w/g, chr => chr.toUpperCase()));
+    const avgStreams = [15.45, 18.86];
+    const subscriberPct = [39.7, 84.6];
+
+    const palette = ['#2563eb', '#10b981'];
+
+    // Average Streams Chart
+    new Chart(document.getElementById('avgStreams'), {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Avg Streams', data: avgStreams, backgroundColor: palette }] },
+      options: { 
+        responsive: true, 
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Subscriber Penetration Chart
+    new Chart(document.getElementById('subscriberPct'), {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Subscriber %', data: subscriberPct, backgroundColor: palette }] },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, suggestedMax: 100, ticks: { callback: value => value + '%' } } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // US Subscriber Types
+    const usPlanLabels = ['aavail_basic', 'aavail_premium', 'aavail_unlimited'].map(p => p.replace('aavail_', '').replace('_', ' ').replace(/\b\w/g, chr => chr.toUpperCase()));
+    const usPlanData = [281, 232, 187];
+    new Chart(document.getElementById('usSubscriberTypes'), {
+      type: 'doughnut',
+      data: { 
+        labels: usPlanLabels,
+        datasets: [{ data: usPlanData, backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'] }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Singapore Subscriber Types
+    const sgPlanLabels = ['aavail_basic', 'aavail_unlimited', 'aavail_premium'].map(p => p.replace('aavail_', '').replace('_', ' ').replace(/\b\w/g, chr => chr.toUpperCase()));
+    const sgPlanData = [130, 89, 81];
+    new Chart(document.getElementById('sgSubscriberTypes'), {
+      type: 'doughnut',
+      data: { 
+        labels: sgPlanLabels,
+        datasets: [{ data: sgPlanData, backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'] }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  </script>
+</body>
+</html>
