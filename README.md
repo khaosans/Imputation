@@ -10,23 +10,54 @@ This repository documents an end‑to‑end missing data remediation and visuali
 - design and apply transparent imputation rules, and
 - deliver stakeholder‑ready visuals for the United States and Singapore markets.
 
-Use the `notebooks/aavail_imputation_workflow.ipynb` notebook as the primary analytical asset.
+Use the `notebooks/aavail_imputation_workflow.ipynb` notebook as the primary analytical asset. The `notebooks/aavail_eda_assignment.ipynb` notebook contains comprehensive exploratory data analysis and visualizations.
+
+Repository Setup
+----------------
+
+This repository is initialized with Git. To connect it to a private remote repository (e.g., GitHub, GitLab):
+
+1. **Create a private repository** on your preferred Git hosting service (GitHub, GitLab, Bitbucket, etc.)
+
+2. **Add the remote** (replace `<your-repo-url>` with your actual repository URL):
+   ```bash
+   git remote add origin <your-repo-url>
+   ```
+
+3. **Push to the remote**:
+   ```bash
+   git branch -M main
+   git push -u origin main
+   ```
+
+4. **Verify the connection**:
+   ```bash
+   git remote -v
+   ```
+
+**Note**: Ensure your remote repository is set to **private** in the repository settings on your Git hosting platform.
 
 Repository Structure
 --------------------
 
 ```
-data/
-  raw/         # Unmodified source files
-  processed/   # Cleaned & imputed datasets
-docs/
-  DATA_DICTIONARY.md
-  PROJECT_PLAN.md
-  REFERENCES.md
-notebooks/
-  aavail_imputation_workflow.ipynb
-reports/
-  aavail_market_insights.html
+Imputation/
+├── data/
+│   ├── raw/         # Unmodified source files
+│   └── processed/   # Cleaned & imputed datasets
+├── docs/
+│   ├── DATA_DICTIONARY.md
+│   ├── PROJECT_PLAN.md
+│   └── REFERENCES.md
+├── notebooks/
+│   ├── aavail_imputation_workflow.ipynb  # Primary imputation workflow
+│   └── aavail_eda_assignment.ipynb       # EDA and visualization analysis
+├── reports/
+│   ├── aavail_market_insights.html       # Executive dashboard
+│   └── assets/                           # Visualization images
+├── .gitignore                             # Git ignore rules
+├── requirements.txt                       # Python dependencies
+└── README.md                              # This file
 ```
 
 Environment Setup
