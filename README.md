@@ -10,7 +10,7 @@ This repository documents an end‑to‑end missing data remediation and visuali
 - design and apply transparent imputation rules, and
 - deliver stakeholder‑ready visuals for the United States and Singapore markets.
 
-Use the `notebooks/aavail_imputation_workflow.ipynb` notebook as the primary analytical asset. The `notebooks/aavail_eda_assignment.ipynb` notebook contains comprehensive exploratory data analysis and visualizations.
+Use the `notebooks/aavail_imputation_workflow.ipynb` notebook as the primary analytical asset. The `notebooks/aavail_eda_assignment.ipynb` notebook contains comprehensive exploratory data analysis and visualizations. The `notebooks/aavail_presentation.ipynb` notebook provides a RISE slideshow presentation for deliverables.
 
 Repository Setup
 ----------------
@@ -50,26 +50,37 @@ Imputation/
 ├── docs/
 │   ├── DATA_DICTIONARY.md                 # Data schema and imputation notes
 │   ├── PROJECT_PLAN.md                    # Project methodology and plan
-│   └── REFERENCES.md                      # APA citations
+│   ├── PRESENTATION_APPENDIX.md           # Technical appendix for presentation
+│   ├── PRESENTATION_README.md             # RISE presentation guide
+│   ├── PRESENTATION_CHECKLIST.md          # Pre-presentation checklist
+│   ├── REFERENCES.md                      # APA citations
+│   └── VIEW_PRESENTATION.md               # Browser viewing instructions
 ├── notebooks/
 │   ├── aavail_imputation_workflow.ipynb   # Primary imputation workflow
-│   └── aavail_eda_assignment.ipynb        # EDA and visualization analysis
+│   ├── aavail_eda_assignment.ipynb        # EDA and visualization analysis
+│   └── aavail_presentation.ipynb          # RISE slideshow presentation
 ├── reports/
 │   ├── aavail_market_insights.html        # Executive dashboard
+│   ├── aavail_eda_assignment.html         # EDA report export
+│   ├── aavail_presentation.html           # Browser-viewable presentation
+│   ├── view_presentation.html             # Presentation viewer page
 │   └── assets/                            # Visualization images
 │       ├── age_by_subscriber_type.png
 │       ├── age_distribution_by_country.png
 │       ├── avg_streams_by_tier.png
+│       ├── churn_analysis.png
 │       ├── imputation_comparison.png
 │       ├── missingness_heatmap.png
 │       └── [other visualization files]
+├── scripts/
+│   ├── create_simple_html.py              # HTML presentation generator
+│   ├── export_to_html.py                  # Presentation export utility
+│   ├── export_presentation.sh             # Export script (bash)
+│   └── verify_setup.py                    # Environment verification
 ├── .gitignore                             # Git ignore rules
-├── .gitattributes                         # Git file handling
 ├── requirements.txt                       # Python dependencies
 ├── README.md                              # This file
 ├── SETUP.md                               # Detailed setup instructions
-├── SETUP_GITHUB.md                        # GitHub repository setup
-├── PUSH_INSTRUCTIONS.md                   # Push instructions
 ├── CONTRIBUTING.md                        # Contribution guidelines
 └── LICENSE                                # MIT License
 ```
@@ -112,7 +123,7 @@ Environment Setup
 4. **Verify installation**:
    ```bash
    # Run the verification script (recommended)
-   python verify_setup.py
+   python scripts/verify_setup.py
    
    # Or verify manually
    python -c "import pandas, numpy, matplotlib, seaborn, jupyter; print('All packages installed successfully!')"
@@ -152,6 +163,21 @@ Reproducing the Analysis
 1. Review `docs/PROJECT_PLAN.md` to understand the analytical questions, success criteria, and imputation rationale.
 2. Execute `notebooks/aavail_imputation_workflow.ipynb` in order. The notebook exports cleaned data to `data/processed/` and regenerates the executive dashboard located in `reports/`.
 3. Open `reports/aavail_market_insights.html` in a browser to inspect the visualization deliverable.
+
+Viewing the Presentation
+------------------------
+
+The RISE presentation can be viewed in multiple ways:
+
+1. **Browser (HTML)**: Open `reports/aavail_presentation.html` in any web browser
+   - See `docs/VIEW_PRESENTATION.md` for detailed instructions
+   
+2. **Interactive RISE**: Open `notebooks/aavail_presentation.ipynb` in Jupyter
+   - Install RISE: `pip install RISE`
+   - Run all cells, then click RISE button or press `Alt+R`
+   - See `docs/PRESENTATION_README.md` for full guide
+
+3. **Regenerate HTML**: Run `python scripts/create_simple_html.py` to recreate the HTML version
 
 Data Governance
 ---------------

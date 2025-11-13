@@ -142,3 +142,11 @@ docs/.doctrees/
 *.out.ipynb
 .cache/
 
+# Scripts output (keep scripts, ignore temporary outputs)
+scripts/*.pyc
+scripts/__pycache__/
+
+# Tools directory (if used for temporary files)
+tools/*
+!tools/.gitkeep
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAVAIL Presentation - View Instructions</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        .method {
+            background: #eff6ff;
+            padding: 20px;
+            border-left: 4px solid #2563eb;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .method h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: 600;
+        }
+        .button:hover {
+            background: #1e40af;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AAVAIL Market Analysis Presentation</h1>
+        <p>View the presentation using one of the methods below:</p>
+
+        <div class="method">
+            <h3>Method 1: RISE Slideshow (Recommended - Interactive)</h3>
+            <p>For the best experience with interactive slideshow features:</p>
+            <ol>
+                <li>Open Jupyter Notebook:
+                    <pre>jupyter notebook notebooks/aavail_presentation.ipynb</pre>
+                </li>
+                <li>Run all cells: <code>Cell > Run All</code></li>
+                <li>Click the <strong>RISE</strong> button in the toolbar (or press <code>Alt+R</code>)</li>
+                <li>Navigate with arrow keys or space bar</li>
+            </ol>
+            <div class="warning">
+                <strong>Note:</strong> Requires RISE extension installed. If not installed:
+                <pre>pip install RISE
+jupyter-nbextension install rise --py --sys-prefix
+jupyter-nbextension enable rise --py --sys-prefix</pre>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>Method 2: HTML Export (Static - Browser Viewable)</h3>
+            <p>View as a static HTML page in any browser:</p>
+            <ol>
+                <li>Open the exported HTML file:
+                    <pre>open reports/aavail_presentation.html</pre>
+                    Or navigate to: <code>reports/aavail_presentation.html</code>
+                </li>
+                <li>All visualizations and content will be visible</li>
+            </ol>
+            <div class="success">
+                <strong>✓ HTML file available:</strong> <code>reports/aavail_presentation.html</code>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>Method 3: JupyterLab with RISE</h3>
+            <p>If using JupyterLab:</p>
+            <ol>
+                <li>Start JupyterLab:
+                    <pre>jupyter lab</pre>
+                </li>
+                <li>Open <code>notebooks/aavail_presentation.ipynb</code></li>
+                <li>Run all cells</li>
+                <li>Use RISE extension (if available) or export to HTML</li>
+            </ol>
+        </div>
+
+        <h2>Quick Start</h2>
+        <p>To quickly view the presentation:</p>
+        <pre># Option 1: Open HTML in browser
+open reports/aavail_presentation.html
+
+# Option 2: Start Jupyter with RISE
+jupyter notebook notebooks/aavail_presentation.ipynb</pre>
+
+        <h2>File Locations</h2>
+        <ul>
+            <li><strong>Notebook:</strong> <code>notebooks/aavail_presentation.ipynb</code></li>
+            <li><strong>HTML Export:</strong> <code>reports/aavail_presentation.html</code></li>
+            <li><strong>Visualizations:</strong> <code>reports/assets/</code></li>
+        </ul>
+
+        <h2>Troubleshooting</h2>
+        <div class="warning">
+            <strong>If RISE button doesn't appear:</strong>
+            <ul>
+                <li>Verify RISE is installed: <code>pip list | grep -i rise</code></li>
+                <li>Check extension is enabled: <code>jupyter-nbextension list</code></li>
+                <li>Restart Jupyter Notebook after installation</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>If images don't display:</strong>
+            <ul>
+                <li>Ensure all cells have been run</li>
+                <li>Check that <code>reports/assets/</code> contains all PNG files</li>
+                <li>Re-run the notebook from the beginning</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
